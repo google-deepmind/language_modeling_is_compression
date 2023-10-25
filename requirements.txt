@@ -1,0 +1,12 @@
+absl-py
+chex
+dm-tree
+dm-haiku
+jax
+numpy
+optax
+pillow
+pydub
+tensorflow
+tensorflow_datasets
+tqdm
