@@ -1,7 +1,7 @@
 # Language Modeling is Compression
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/deepmind/language_modeling_is_compression/master/overview.png" alt="Overview figure"/>
+  <img src="https://raw.githubusercontent.com/google-deepmind/language_modeling_is_compression/master/overview.png" alt="Overview figure"/>
 </p>
 
 This repository provides an implementation of our paper [Language Modeling is Compression](https://arxiv.org/abs/2309.10668).
