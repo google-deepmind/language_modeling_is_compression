@@ -210,4 +210,5 @@ def transformer_decoder(
     h = hk.Linear(config.embedding_dim)(h)
     h = layer_norm(h + attention)
 
-  return hk.Linear(config.vocab_size)(h)
+  logits = hk.Linear(config.vocab_size)(h)
+  return jnn.log_softmax(logits, axis=-1)
