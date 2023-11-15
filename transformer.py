@@ -16,7 +16,6 @@
 """Transformer model."""
 
 import dataclasses
-from typing import Callable, Optional
 
 import haiku as hk
 import jax
@@ -39,13 +38,9 @@ class TransformerConfig:
   num_heads: int = 8
   # The parameter initialization scale for the embeddings.
   emb_init_scale: float = 0.02
-  # Whether to use the embeddings rather than raw inputs.
-  use_embeddings: bool = True
   # How much larger the hidden layer of the feedforward network should be
   # compared to the `embedding_dim`.
   widening_factor: int = 4
-  # Which activation function to use.
-  activation_fn: Callable[[jax.Array], jax.Array] = jnn.relu
 
 
 class MultiHeadDotProductAttention(hk.Module):
@@ -55,7 +50,7 @@ class MultiHeadDotProductAttention(hk.Module):
       self,
       num_heads: int,
       num_hiddens_per_head: int,
-      name: Optional[str] = None,
+      name: str | None = None,
   ) -> None:
     """Initializes the attention module.
 
@@ -72,7 +67,7 @@ class MultiHeadDotProductAttention(hk.Module):
       self,
       inputs_q: jax.Array,
       inputs_kv: jax.Array,
-      mask: Optional[jax.Array] = None,
+      mask: jax.Array | None = None,
       causal: bool = False,
   ) -> jax.Array:
     """Returns the output of the multi-head attention."""
@@ -206,7 +201,7 @@ def transformer_decoder(
 
     # Position-wise feedforward network.
     h = hk.Linear(config.embedding_dim * config.widening_factor)(attention)
-    h = config.activation_fn(h)
+    h = jnn.gelu(h)
     h = hk.Linear(config.embedding_dim)(h)
     h = layer_norm(h + attention)
 
