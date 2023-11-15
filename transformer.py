@@ -68,7 +68,6 @@ class MultiHeadDotProductAttention(hk.Module):
       inputs_q: jax.Array,
       inputs_kv: jax.Array,
       mask: jax.Array | None = None,
-      causal: bool = False,
   ) -> jax.Array:
     """Returns the output of the multi-head attention."""
     batch_size, sequence_length, embedding_size = inputs_q.shape
@@ -196,7 +195,7 @@ def transformer_decoder(
     self_attention = MultiHeadDotProductAttention(
         num_heads=config.num_heads,
         num_hiddens_per_head=config.embedding_dim // config.num_heads,
-    )(inputs_q=h, inputs_kv=h, mask=causal_mask, causal=True)
+    )(inputs_q=h, inputs_kv=h, mask=causal_mask)
     attention = layer_norm(h + self_attention)
 
     # Position-wise feedforward network.
