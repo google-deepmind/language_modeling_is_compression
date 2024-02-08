@@ -4,7 +4,7 @@
   <img src="https://raw.githubusercontent.com/google-deepmind/language_modeling_is_compression/master/overview.png" alt="Overview figure"/>
 </p>
 
-This repository provides an implementation of our paper [Language Modeling is Compression](https://arxiv.org/abs/2309.10668).
+This repository provides an implementation of our ICLR 2024 paper [Language Modeling is Compression](https://arxiv.org/abs/2309.10668).
 
 > It has long been established that predictive models can be transformed into lossless compressors and
 vice versa. Incidentally, in recent years, the machine learning community has focused on training
@@ -100,7 +100,7 @@ python compress.py
 ## Citing This Work
 
 ```bibtex
-@article{deletang2023language,
+@inproceedings{deletang2024language,
   author       = {Gr{\'{e}}goire Del{\'{e}}tang and
                   Anian Ruoss and
                   Paul{-}Ambroise Duquenne and
@@ -114,8 +114,8 @@ python compress.py
                   Marcus Hutter and
                   Joel Veness},
   title        = {Language Modeling Is Compression},
-  journal      = {arXiv:2309.10668},
-  year         = {2023}
+  booktitle    = {{ICLR}},
+  year         = {2024}
 }
 ```
 
