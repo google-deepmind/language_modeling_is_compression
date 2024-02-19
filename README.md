@@ -58,7 +58,7 @@ Then, run the following commands:
 
 ```bash
 # Clone the source code into a local directory:
-git clone https://github.com/deepmind/language_modeling_is_compression.git
+git clone https://github.com/google-deepmind/language_modeling_is_compression.git
 cd language_modeling_is_compression
 
 # Create and activate the conda environment:
