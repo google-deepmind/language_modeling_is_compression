@@ -71,10 +71,10 @@ def compress(
     use_slow_lossless_compression: Whether to compute the `pdf`s for all tokens
       in the data stream in one go or separately for every proper subsequence.
       When only compressing data (i.e., without decompression) use the first
-      approach (i.e., `True`) since it has an O(n) runtime complexity, while the
-      latter is O(n^2). However, the goal is to losslessly decompress the
-      compressed output, use the second option (i.e., `False`) since this is
-      what happens in the decoder (which iteratively reconstructs the sequence).
+      approach (i.e., `False`) since it has an O(n) runtime complexity, while
+      the latter is O(n^2). However, the goal is to losslessly decompress the
+      compressed output, use the second option (i.e., `True`) since this is what
+      happens in the decoder (which iteratively reconstructs the sequence).
 
   Returns:
     The compressed data.
